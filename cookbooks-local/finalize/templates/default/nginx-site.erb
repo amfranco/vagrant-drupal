@@ -47,7 +47,7 @@
                  return 403;
          }
 
-         
+
          location / {
                  # This is cool because no php is touched for static content
                  try_files $uri @rewrite;
@@ -57,11 +57,11 @@
                  # You have 2 options here
                  # For D7 and above:
                  # Clean URLs are handled in drupal_environment_initialize().
-                 rewrite ^ /index.php;
+                 # rewrite ^ /index.php;
                  # For Drupal 6 and bwlow:
                  # Some modules enforce no slash (/) at the end of the URL
                  # Else this rewrite block wouldn't be needed (GlobalRedirect)
-                 #rewrite ^/(.*)$ /index.php?q=$1;
+                 rewrite ^/(.*)$ /index.php?q=$1;
          }
 
          location ~ \.php$ {
@@ -71,7 +71,7 @@
                 proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
                 proxy_set_header X-Real-IP $remote_addr;
          }
-         
+
          # Fighting with Styles? This little gem is amazing.
          # This is for D6
          #location ~ ^/sites/.*/files/imagecache/ {
