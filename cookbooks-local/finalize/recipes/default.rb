@@ -18,6 +18,7 @@
 #
 
 include_recipe "build-essential"
+include_recipe "php-fpm"
 include_recipe "finalize::iptables"
 include_recipe "finalize::php"
 include_recipe "finalize::web_server"

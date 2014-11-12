@@ -11,11 +11,13 @@ version          "0.1.0"
 recommends       "git"
 
 depends          "php"
+depends          "php-fpm"
 depends          "apache2"
 depends          "cron"
 depends          "drush"
 depends          "nginx"
-depends          "varnish"
+depends          "hostsfile"
+#depends          "varnish"
 
 %w{ ubuntu debian centos redhat}.each do |os|
   supports os

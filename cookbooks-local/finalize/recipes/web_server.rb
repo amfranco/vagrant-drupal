@@ -33,8 +33,9 @@ end
 
 # Varnish configuration
 node.set['varnish']['storage_file'] = '/var/lib/varnish/varnish_storage.bin'
-node.set['varnish']['vcl_source'] = "varnish.vlc.erb"
+node.set['varnish']['vcl_source'] = "varnish.erb"
 node.set['varnish']['vcl_cookbook'] = "finalize"
+node.set['varnish']['conf_cookbook'] = "finalize"
 node.set['varnish']['storage_size'] = "256MB"
 node.set['varnish']['version'] = "3.0.1"
 
@@ -63,4 +64,10 @@ web_app node["finalize"]["server_name"] do
   server_aliases ["*." + node["finalize"]["server_name"]]
   docroot node["finalize"]["apache2"]["docroot"]
   allow_override "All"
+end
+
+# Edit hosts file
+hostsfile_entry '127.0.0.1' do
+  hostname  node["finalize"]["server_name"]
+  action    :create_if_missing
 end

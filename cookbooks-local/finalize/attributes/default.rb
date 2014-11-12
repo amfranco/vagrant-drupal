@@ -20,14 +20,26 @@
 default["finalize"]["server_name"] =                "drupal-site"
 default["finalize"]["apache2"]["docroot"] =         "/vagrant/www"
 
+# 1: makefile
+# 2: scratch
+# 3: profile
+default["finalize"]["drupal"]["install_option"] = 1
+# Option 1: Filename of the makefile to use for this build. (if you want to install using drush make)
+default["finalize"]["drupal"]["makefile"] = "drupal.make"
+
+# Option 2: use false to install custom profile (see default["finalize"]["drupal"]["install_profile"])
+# deprecated !!!!!!!!!!!
+default["finalize"]["drupal"]["new_install"] = true
+
 default["finalize"]["drupal"]["pressflow"] = false
 default["finalize"]["drupal"]["sites_subdir"] =     "default"
 default["finalize"]["drupal"]["major_version"] = "7"
 default["finalize"]["drupal"]["install_profile"] =  "standard"
+default["finalize"]["drupal"]["site_name"] =        "drupal site"
 default["finalize"]["drupal"]["account_name"] =     "admin"
 default["finalize"]["drupal"]["account_pass"] =     "admin"
 default["finalize"]["drupal"]["preferred_state"] =  "stable"
-default["finalize"]["drupal"]["theme"] = "omega"
+default["finalize"]["drupal"]["theme"] = ""
 default["finalize"]["drupal"]["modules_preset"] =   %w{entity
                                                         features
                                                         libraries
@@ -37,6 +49,8 @@ default["finalize"]["drupal"]["modules_preset"] =   %w{entity
                                                         pathauto
                                                         rules
                                                         admin_menu}
+default["finalize"]["drupal"]["disable_modules"] =   %w{overlay
+                                                        toolbar}
 
 default["finalize"]["php"]["preferred_state"] = "stable"
 if node['php']['install_method'] == "package"

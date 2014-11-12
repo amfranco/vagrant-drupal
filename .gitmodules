@@ -58,3 +58,42 @@
 [submodule "cookbooks/runit"]
 	path = cookbooks/runit
 	url = https://github.com/opscode-cookbooks/runit
+[submodule "cookbooks/7-zip"]
+	path = cookbooks/7-zip
+	url = https://github.com/opscode-cookbooks/7-zip.git
+[submodule "cookbooks/ark"]
+	path = cookbooks/ark
+	url = https://github.com/opscode-cookbooks/ark.git
+[submodule "cookbooks/bluepill"]
+	path = cookbooks/bluepill
+	url = https://github.com/opscode-cookbooks/bluepill.git
+[submodule "cookbooks/chef-sugar"]
+	path = cookbooks/chef-sugar
+	url = https://github.com/sethvargo/chef-sugar.git
+[submodule "cookbooks/hostsfile"]
+	path = cookbooks/hostsfile
+	url = https://github.com/customink-webops/hostsfile.git
+[submodule "cookbooks/iis"]
+	path = cookbooks/iis
+	url = https://github.com/opscode-cookbooks/iis.git
+[submodule "cookbooks/iptables"]
+	path = cookbooks/iptables
+	url = https://github.com/opscode-cookbooks/iptables.git
+[submodule "cookbooks/logrotate"]
+	path = cookbooks/logrotate
+	url = https://github.com/opscode-cookbooks/logrotate.git
+[submodule "cookbooks/nodejs"]
+	path = cookbooks/nodejs
+	url = https://github.com/redguide/nodejs.git
+[submodule "cookbooks/php-fpm"]
+	path = cookbooks/php-fpm
+	url = https://github.com/yevgenko/cookbook-php-fpm.git
+[submodule "cookbooks/rsyslog"]
+	path = cookbooks/rsyslog
+	url = https://github.com/opscode-cookbooks/rsyslog.git
+[submodule "cookbooks/yum-epel"]
+	path = cookbooks/yum-epel
+	url = https://github.com/opscode-cookbooks/yum-epel.git
+[submodule "cookbooks/yum-mysql-community"]
+	path = cookbooks/yum-mysql-community
+	url = https://github.com/opscode-cookbooks/yum-mysql-community.git

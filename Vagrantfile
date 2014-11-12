@@ -38,6 +38,11 @@ Vagrant::configure("2") do |config|
   # Forward a port from the guest to the host, which allows for outside
   # computers to access the VM, whereas host only networking does not.
   # config.vm.forwarded_port 80, 8080
+  config.vm.network :forwarded_port, host: 80, guest: 80, auto_correct: true
+  config.vm.network :forwarded_port, host: 8080, guest: 8080, auto_correct: true
+  config.vm.network :forwarded_port, host: 3306, guest: 3306, auto_correct: true
+  config.vm.network :forwarded_port, host: 6081, guest: 6081, auto_correct: true
+  config.vm.network :forwarded_port, host: 6082, guest: 6082, auto_correct: true
   config.vm.provider "virtualbox" do |v|
     # Set RAM to 1 GB
     v.customize ["modifyvm", :id, "--memory", 1024]
@@ -57,18 +62,24 @@ Vagrant::configure("2") do |config|
     config.vm.synced_folder "./", "/vagrant", :nfs => true
   end
 
-
+  # ensure chef-solo is installed on VM
+  config.omnibus.chef_version = :latest  
+  
   # Provision with a shell script
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = ["cookbooks-local", "cookbooks"]
-    chef.add_recipe "yum"
+    #chef.add_recipe "yum"
     #chef.add_recipe "yum::remi"
-    chef.add_recipe "php"
+    #chef.add_recipe "yum-epel"
+    #chef.add_recipe "php"
     chef.add_recipe "nginx"
-    chef.add_recipe "apache2"
-    chef.add_recipe "solr"
-    chef.add_recipe "mysql"
+    #chef.add_recipe "apache2"
+    #chef.add_recipe "solr"
+    #chef.add_recipe "mysql"
     chef.add_recipe "mysql::server"
+	#chef.add_recipe "7-zip"
+	#chef.add_recipe "ark"
+	chef.add_recipe "nodejs"
     chef.add_recipe "finalize"
     chef.add_recipe "finalize::drupal"
     chef.json = {
@@ -103,11 +114,10 @@ Vagrant::configure("2") do |config|
           # If pressflow set to true, drupal core will be pulled out
           # from https://github.com/pressflow/<major_version>.git
           # for more info visit http://pressflow.org/faq
-          "pressflow" => true,           # Default false
+          "pressflow" => false,           # Default false
           "sites_subdir" => "default",   # Default "default"
           "major_version" => "7",        # Default "7"
-          "preferred_state" => "stable", # Default "stable"
-          "theme" => "omega"             # Default "omega"
+          "preferred_state" => "stable" # Default "stable"
         }
       },
       :solr => {
