@@ -1,5 +1,5 @@
 # Drupal Vagrant
-  
+
   A chef-based project template provides easy to configure, reproducible, and portable work environments for drupal development.
 
 *Server stack:*
@@ -10,6 +10,7 @@
 * php
 * mysql
 * solr
+* nodejs
 
 for more info about server stack [see image](http://www.unixguru.co.uk/wp-content/uploads/2013/02/UnixGuruNVAColour1.png)
 
@@ -39,7 +40,7 @@ to add `/opt/vagrant/bin` to your `PATH`. After this, you're ready to go!
 
 To build your first drupal virtual environment from scratch:
 
-    git clone https://github.com/ksorokin/vagrant-drupal.git
+    git clone https://github.com/amfranco/vagrant-drupal.git
     cd vagrant-drupal
     git submodule init
     git submodule update
@@ -82,7 +83,7 @@ Drupal config
 Take a look for used cookbooks to learn more about available options
 * [git](https://github.com/opscode-cookbooks/git) - git installation
 * [apache2](https://github.com/opscode-cookbooks/apache2) - opscode apache2 w/ LWRP
-* [php](https://github.com/opscode-cookbooks/php) - php/pear 
+* [php](https://github.com/opscode-cookbooks/php) - php/pear
 * [mysql](https://github.com/opscode-cookbooks/mysql) - mysql installtion
 * [drush](https://github.com/ksorokin/chef-drush.git) - install drush, required by finalize to download, unpack and install drupal with predefined modules
 * [finalize](https://github.com/ksorokin/vagrant-drupal/tree/master/cookbooks-local/finalize) - completes environment configuration

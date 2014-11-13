@@ -63,8 +63,8 @@ Vagrant::configure("2") do |config|
   end
 
   # ensure chef-solo is installed on VM
-  config.omnibus.chef_version = :latest  
-  
+  config.omnibus.chef_version = :latest
+
   # Provision with a shell script
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = ["cookbooks-local", "cookbooks"]
@@ -74,12 +74,12 @@ Vagrant::configure("2") do |config|
     #chef.add_recipe "php"
     chef.add_recipe "nginx"
     #chef.add_recipe "apache2"
-    #chef.add_recipe "solr"
+    chef.add_recipe "solr"
     #chef.add_recipe "mysql"
     chef.add_recipe "mysql::server"
-	#chef.add_recipe "7-zip"
-	#chef.add_recipe "ark"
-	chef.add_recipe "nodejs"
+    #chef.add_recipe "7-zip"
+    #chef.add_recipe "ark"
+    chef.add_recipe "nodejs"
     chef.add_recipe "finalize"
     chef.add_recipe "finalize::drupal"
     chef.json = {

@@ -31,6 +31,14 @@ when "ubuntu", "debian"
  shell_out(command)
 end
 
+# PHP-FPM configuration
+node.set['php-fpm']['listen'] = "127.0.0.1:9000"
+include_recipe "php-fpm"
+php_fpm_pool "www" do
+  process_manager "dynamic"
+  listen "127.0.0.1:9000"
+end
+
 # Varnish configuration
 node.set['varnish']['storage_file'] = '/var/lib/varnish/varnish_storage.bin'
 node.set['varnish']['vcl_source'] = "varnish.erb"
@@ -69,5 +77,6 @@ end
 # Edit hosts file
 hostsfile_entry '127.0.0.1' do
   hostname  node["finalize"]["server_name"]
-  action    :create_if_missing
+  comment   'Append by Recipe finalize::web_server'
+  action    :append
 end
