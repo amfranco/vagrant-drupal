@@ -1,8 +1,8 @@
 #
 # Cookbook Name:: finalize
-# Recipe:: default
+# Recipe:: nodejs
 #
-# Copyright 2013, Konstantin Sorokin
+# Copyright 2014, Andres Franco
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,17 +17,7 @@
 # limitations under the License.
 #
 
-include_recipe "build-essential"
-include_recipe "php-fpm"
-include_recipe "composer"
-include_recipe "finalize::iptables"
-include_recipe "finalize::php"
-include_recipe "finalize::web_server"
-include_recipe "finalize::nodejs"
-
-template "/vagrant/www/hosts.txt" do
-	source "hosts.erb"
-	owner "vagrant"
-    group "vagrant"
-    mode "0777"
+# Finalize nodejs installation with extras
+node["finalize"]["nodejs"]["packages"].each do |npm|
+  nodejs_npm npm
 end

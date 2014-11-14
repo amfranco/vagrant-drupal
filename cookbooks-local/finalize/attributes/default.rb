@@ -77,3 +77,5 @@ else
                                                     "php5-common"]
     end
 end
+
+default["finalize"]["nodejs"]["packages"] = ["grunt", "grunt-cli", "grunt-drupal-tasks"]

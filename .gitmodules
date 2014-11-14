@@ -97,3 +97,6 @@
 [submodule "cookbooks/yum-mysql-community"]
 	path = cookbooks/yum-mysql-community
 	url = https://github.com/opscode-cookbooks/yum-mysql-community.git
+[submodule "cookbooks/composer"]
+	path = cookbooks/composer
+	url = https://github.com/escapestudios-cookbooks/composer
