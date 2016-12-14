@@ -14,7 +14,7 @@
 
 for more info about server stack [see image](http://www.unixguru.co.uk/wp-content/uploads/2013/02/UnixGuruNVAColour1.png)
 
-Tested on CentOS 64 and Ubuntu 32/64
+Tested on CentOS 64 and Ubuntu 32/64.
 
 -------------
 
