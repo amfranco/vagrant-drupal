@@ -11,6 +11,8 @@
 * mysql
 * solr
 * nodejs
+* git
+* drush
 
 for more info about server stack [see image](http://www.unixguru.co.uk/wp-content/uploads/2013/02/UnixGuruNVAColour1.png)
 
